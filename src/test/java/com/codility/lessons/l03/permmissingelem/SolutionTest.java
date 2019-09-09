@@ -1,4 +1,4 @@
-package com.codility.lessons.l01.binarygap;
+package com.codility.lessons.l03.permmissingelem;
 
 import com.codility.lessons.extensions.TimingExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,22 +17,20 @@ class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("createTestData")
-    void test(int number, int expected) {
-        final int actual = SOLUTION.solution(number);
+    void test(int[] numbers, int expected) {
+        final int actual = SOLUTION.solution(numbers);
         assertThat(actual).isEqualTo(expected);
     }
 
     private static Stream<Arguments> createTestData() {
+        final int[] large = new int[100000];
+        for (int i = 0; i < large.length; i++) {
+            large[i] = i + 1;
+        }
         return Stream.of(
-                Arguments.of(1041, 5),
-                Arguments.of(22, 1),
-                Arguments.of(4232, 4),
-                Arguments.of(328, 2),
-                Arguments.of(51712, 2),
-                Arguments.of(20, 1),
-                Arguments.of(1610612737, 28),
-                Arguments.of(1376796946, 5),
-                Arguments.of(12, 0)
+                Arguments.of(new int[]{2, 3, 1, 5}, 4),
+                Arguments.of(new int[]{2, 3, 1, 5, 6, 9, 8, 7}, 4),
+                Arguments.of(large, large.length + 1)
         );
     }
 

@@ -1,4 +1,4 @@
-package com.codility.lessons.l01.binarygap;
+package com.codility.lessons.l03.frogjump;
 
 import com.codility.lessons.extensions.TimingExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,22 +17,17 @@ class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("createTestData")
-    void test(int number, int expected) {
-        final int actual = SOLUTION.solution(number);
+    void test(int initial, int target, int jumpDistance, int expected) {
+        final int actual = SOLUTION.solution(initial, target, jumpDistance);
         assertThat(actual).isEqualTo(expected);
     }
 
     private static Stream<Arguments> createTestData() {
         return Stream.of(
-                Arguments.of(1041, 5),
-                Arguments.of(22, 1),
-                Arguments.of(4232, 4),
-                Arguments.of(328, 2),
-                Arguments.of(51712, 2),
-                Arguments.of(20, 1),
-                Arguments.of(1610612737, 28),
-                Arguments.of(1376796946, 5),
-                Arguments.of(12, 0)
+                Arguments.of(10, 85, 30, 3),
+                Arguments.of(100, 130, 30, 1),
+                Arguments.of(100, 130, 1, 30),
+                Arguments.of(100, 130, 4, 8)
         );
     }
 

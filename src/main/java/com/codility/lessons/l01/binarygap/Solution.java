@@ -28,8 +28,7 @@ class Solution {
                     if (insideGap) currentCount++;
                     break;
                 default:
-                    insideGap = false;
-                    break;
+                    throw new IllegalStateException("Is this really binary?");
             }
         }
         return maxCount;

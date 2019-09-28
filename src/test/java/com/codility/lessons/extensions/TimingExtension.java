@@ -26,8 +26,6 @@ import java.util.logging.Logger;
 /**
  * Simple extension that <em>times</em> the execution of test methods and
  * logs the results at {@code INFO} level.
- *
- * @since 5.0
  */
 public class TimingExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
 

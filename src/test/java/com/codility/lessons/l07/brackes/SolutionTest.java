@@ -1,4 +1,4 @@
-package com.codility.lessons.l03.tapeequilibrium;
+package com.codility.lessons.l07.brackes;
 
 import com.codility.lessons.extensions.TimingExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,19 +17,27 @@ class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("createTestData")
-    void test(int[] numbers, int expected) {
-        final int actual = SOLUTION.solution(numbers);
+    void test(String S, int expected) {
+        final int actual = SOLUTION.solution(S);
         assertThat(actual).isEqualTo(expected);
     }
 
     private static Stream<Arguments> createTestData() {
         return Stream.of(
-                Arguments.of(new int[]{3, 1, 2, 4, 3}, 1)
-//                Arguments.of(new int[]{1, 1, 3}, 1),
-//                Arguments.of(new int[]{5, 2}, 3),
-//                Arguments.of(new int[]{-10, -20}, 10),
-//                Arguments.of(new int[]{-1000, 1000}, 2000),
-//                Arguments.of(new int[]{-10, -20, -30, -40, 100}, 20)
+                Arguments.of("", 1),
+                Arguments.of("{[()()]}", 1),
+                Arguments.of("{[()]}", 1),
+                Arguments.of("[]", 1),
+                Arguments.of("{}", 1),
+                Arguments.of("()", 1),
+                Arguments.of("(((())))", 1),
+                Arguments.of("([((()))])", 1),
+                Arguments.of("([)()]", 0),
+                Arguments.of("]", 0),
+                Arguments.of("{{{{", 0),
+                Arguments.of("[", 0)
         );
     }
+
+
 }

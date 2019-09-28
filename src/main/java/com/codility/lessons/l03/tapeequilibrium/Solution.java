@@ -2,16 +2,15 @@ package com.codility.lessons.l03.tapeequilibrium;
 
 public class Solution {
     public int solution(final int[] A) {
-        long leftSum = 0;
-        long rightSum = sum(A);
-        long min = Math.abs(leftSum - rightSum);
-
-        for (final int current : A) {
-            leftSum += current;
-            rightSum -= current;
-
+        long min = Long.MAX_VALUE;
+        long leftSum = A[0];
+        long rightSum = sum(A) - leftSum;
+        for (int i = 1; i < A.length; i++) {
+            final int current = A[i];
             final long diff = Math.abs(leftSum - rightSum);
             min = Math.min(min, diff);
+            leftSum += current;
+            rightSum -= current;
         }
 
         return (int) min;

@@ -1,4 +1,4 @@
-package com.codility.lessons.l07.brackes;
+package com.codility.lessons.l07.nesting;
 
 import com.codility.lessons.extensions.TimingExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,19 +25,17 @@ class SolutionTest {
     private static Stream<Arguments> createTestData() {
         return Stream.of(
                 Arguments.of("", 1),
-                Arguments.of("{[()()]}", 1),
-                Arguments.of("{[()]}", 1),
-                Arguments.of("[]", 1),
-                Arguments.of("{}", 1),
+                Arguments.of("((()()))", 1),
+                Arguments.of("((()))", 1),
+                Arguments.of("()", 1),
+                Arguments.of("()", 1),
                 Arguments.of("()", 1),
                 Arguments.of("(((())))", 1),
-                Arguments.of("([((()))])", 1),
-                Arguments.of("([)()]", 0),
-                Arguments.of("]", 0),
-                Arguments.of("{{{{", 0),
-                Arguments.of("[", 0)
+                Arguments.of("((((()))))", 1),
+                Arguments.of("(()())", 1),
+                Arguments.of(")", 0),
+                Arguments.of("((((", 0),
+                Arguments.of("(", 0)
         );
     }
-
-
 }

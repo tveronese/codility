@@ -1,4 +1,4 @@
-package com.codility.lessons.l07.brackes;
+package com.codility.lessons.l07.brackets;
 
 import java.util.Deque;
 import java.util.HashMap;

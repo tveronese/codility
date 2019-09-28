@@ -1,4 +1,4 @@
-package com.codility.lessons.l07.fish;
+package com.codility.lessons.l07.stonewall;
 
 import com.codility.lessons.extensions.TimingExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,15 +17,16 @@ class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("createTestData")
-    void test(int[] A, int[] B, int expected) {
-        final int actual = SOLUTION.solution(A, B);
+    void test(int[] heights, int expected) {
+        final int actual = SOLUTION.solution(heights);
         assertThat(actual).isEqualTo(expected);
     }
 
     private static Stream<Arguments> createTestData() {
         return Stream.of(
-                Arguments.of(new int[]{4, 3, 2, 1, 5}, new int[]{0, 1, 0, 0, 0}, 2)
+                Arguments.of(new int[]{8, 8, 5, 7, 9, 8, 7, 4, 8}, 7)
         );
     }
+
 
 }
